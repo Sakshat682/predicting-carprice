@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request
+<<<<<<< HEAD
 import pickle
 import pandas as pd
+=======
+import jsonify
+import requests
+import pickle
+import numpy as np
+import pandas as pd
+import sklearn
+>>>>>>> 678b0fda36cc86c631496b51568c404c797b6f02
 from sklearn.preprocessing import MinMaxScaler
 app = Flask(__name__)
 model = pickle.load(open('rf_model.pkl', 'rb'))
@@ -15,7 +24,10 @@ df = df.drop(labels='Car_Name', axis=1)
 clean_data = pd.get_dummies(df,drop_first=True)
 data_no_multicolinearity = clean_data.drop(['Fuel_Type_Petrol'],axis=1)
 X = data_no_multicolinearity.drop('Selling_Price',axis=1)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 678b0fda36cc86c631496b51568c404c797b6f02
 min_max_scaler = MinMaxScaler()
 min_max_scaler.fit(X[['Present_Price','Car_age','Kms_Driven']])
 
